@@ -10,6 +10,7 @@ import {
     Platform,
     Easing,
     Image,
+    ImageBackground,
     View,
     Text
 } from 'react-native';
@@ -32,7 +33,7 @@ export default class VideoPlayer extends Component {
             volume: this.props.volume || 1,
             rate: this.props.rate || 1,
             // Controls
-            
+
             isFullscreen: this.props.resizeMode === 'cover' || false,
             showTimeRemaining: true,
             volumeTrackWidth: 0,
@@ -486,7 +487,7 @@ export default class VideoPlayer extends Component {
 
         state.seekerFillWidth = position;
         state.seekerPosition = position;
-        
+
         if ( ! state.seeking ) {
             state.seekerOffset = position
         };
@@ -797,7 +798,7 @@ export default class VideoPlayer extends Component {
                     marginTop: this.animations.topControl.marginTop,
                 }
             ]}>
-                <Image
+                <ImageBackground
                     source={ require( './assets/img/top-vignette.png' ) }
                     style={[ styles.controls.column, styles.controls.vignette,
                 ]}>
@@ -808,7 +809,7 @@ export default class VideoPlayer extends Component {
                             { this.renderFullscreen() }
                         </View>
                     </View>
-                </Image>
+                </ImageBackground>
             </Animated.View>
         );
     }
@@ -878,7 +879,7 @@ export default class VideoPlayer extends Component {
                     marginBottom: this.animations.bottomControl.marginBottom,
                 }
             ]}>
-                <Image
+                <ImageBackground
                     source={ require( './assets/img/bottom-vignette.png' ) }
                     style={[ styles.controls.column, styles.controls.vignette,
                 ]}>
@@ -891,7 +892,7 @@ export default class VideoPlayer extends Component {
                         { this.renderTitle() }
                         { this.renderTimer() }
                     </View>
-                </Image>
+                </ImageBackground>
             </Animated.View>
         );
     }
